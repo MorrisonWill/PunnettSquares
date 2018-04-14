@@ -1,14 +1,28 @@
 #Final Genotype Thing
 #Matan and Will
 
+genotype1 = str(input("Input the first genotype here!"))
+genotype2 = str(input("Input the second genotype here!"))
+split_genes_list1 = []
+split_genes_list2 = []
+genotype_list=[]
+genotype_offspring=[]
+
+def make_strings_lists():
+    index1 = 0
+    index2 = 1
+    while index2 < len(genotype1):
+        split_genes_list1.append(genotype1[index1]+genotype1[index2])
+        split_genes_list2.append(genotype2[index1]+genotype1[index2])
+        index1+=2
+        index2+=2
+    return(split_genes_list1)
+
+def get_all_combinations(parent):
+    make_strings_lists()
 
 
-
-
-
-
-
-
+            
 
 
 
@@ -44,7 +58,7 @@ def get_all_combinations(parent):
 		for x in get_all_combinations(parent[1:]):
 			genlist.append(parent[0][0] + x)
 			genlist.append(parent[0][1] + x)
-		return genlist                                                            
+		return genlist                                                          
 
 def make_row(genotype, allele):
 	row = []

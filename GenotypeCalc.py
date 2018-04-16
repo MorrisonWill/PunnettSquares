@@ -38,12 +38,31 @@ def get_all_combinations(parent, split_genes_list, list_to_store_results): #get 
     if len(split_genes_list) > 2: #if there are more than two binomials...
         for i in range (0, int(len(genotype1)/2)-2): #Loop the following the integer of half of the length of a parent's genotype
             distribute(split_genes_list[2+i], list_to_store_results)
+            
+def get_all_possible_offspring_genotypes():
+    for z in range (0,4):
+        for i in range(0,4):
+            string = possible_genotype_list1[z] + possible_genotype_list2[i]
+            sorted_string_list = sorted([string[0], string[1], string[2], string[3]],key=lambda x: x.lower())
+            sorted_string_list1 = sorted([sorted_string_list[0], sorted_string_list[1]])
+            sorted_string_list2 = sorted([sorted_string_list[2], sorted_string_list[3]])
+            sorted_string1 = "".join(sorted_string_list1)
+            sorted_string2 = "".join(sorted_string_list2)
+            genotype_offspring.append(sorted_string1 + sorted_string2)
+def print_genotype():
+    to_print = int(input("Press 1 to print, 2 to not print"))
+    if to_print == 1:
+        print((" " * len(genotype1) + "|")*len(possible_genotype_list1))
+        print(" "*len(genotype1) + "|"+ possible_geontype_list[i]
 
 # TESTING............
-#get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
-#get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
-#print(possible_genotype_list1)
-#print(possible_genotype_list2)
+get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
+get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
+print(possible_genotype_list1)
+print(possible_genotype_list2)
+get_all_possible_offspring_genotypes()
+print(genotype_offspring)
+print_genotype()
     
 
             

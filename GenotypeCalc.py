@@ -65,23 +65,24 @@ def get_all_possible_offspring_genotypes():
 #        print(row1)
 #        print(row2)
 def find_percentages():
+    print(genotype_offspring)
     genotype_list = []
     genotype_frequency = []
-    i = 0
     list_length = len(genotype_offspring)
     while list_length>0:
-        genotype = genotype_offspring[i]
-        genotype_list.append(genotype_offspring[i])
-        genotype_frequency.append(genotype_offspring.count(genotype_offspring[i]))
+        genotype = genotype_offspring[0]
+        genotype_list.append(genotype)
+        genotype_frequency.append(genotype_offspring.count(genotype))
         while genotype_offspring.count(genotype) > 0:
             genotype_offspring.remove(genotype)
             list_length-=1
-        i+=1
+    
     for i in range (0,len(genotype_list)):
-        #print("The percentage of " + genotype_list[i] + " is " + (genotype_frequency[i]/(sum(genotype_frequency)))*100)
+        genotype_percent = ((genotype_frequency[i]/sum(genotype_frequency))*100)
+        print("The percentage of ",genotype_list[i]," is ",genotype_percent,"%")
 
 
-        
+    
 
     
         
@@ -92,5 +93,4 @@ def find_percentages():
 get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
 get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
 get_all_possible_offspring_genotypes()
-print(genotype_offspring)
 find_percentages()

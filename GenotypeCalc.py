@@ -1,66 +1,56 @@
 #Final Genotype Thing
 #Matan and Will
 
-genotype1 = str(input("Input the first genotype here!"))
-genotype2 = str(input("Input the second genotype here!"))
-split_genes_list1 = []
-split_genes_list2 = []
-possible_genotype_list1 = []
-possible_genotype_list2 = []
-genotype_list=[]
-genotype_offspring=[]
+# genotype1 = str(input("Input the first genotype here!"))
+# genotype2 = str(input("Input the second genotype here!"))
+# split_genes_list1 = []
+# split_genes_list2 = []
+# possible_genotype_list1 = []
+# possible_genotype_list2 = []
+# genotype_list=[]
+# genotype_offspring=[]
 
-def make_strings_lists(parent_genotype, split_genes_list):
-    index1 = 0
-    index2 = 1
-    while index2 < len(genotype1):
-        split_genes_list.append(parent_genotype[index1]+parent_genotype[index2])
-        index1+=2
-        index2+=2
+# def make_strings_lists(parent_genotype, split_genes_list): #splits inputs into a list of the alleles of a gene
+#     index1 = 0
+#     index2 = 1
+#     while index2 < len(genotype1):
+#         split_genes_list.append(parent_genotype[index1]+parent_genotype[index2])
+#         index1+=2
+#         index2+=2
 
-def foil(first_gene, second_gene, list_to_store_results):
-    list_to_store_results.append(first_gene[0] + second_gene[0])
-    list_to_store_results.append(first_gene[0] + second_gene[1])
-    list_to_store_results.append(first_gene[1] + second_gene[0])
-    list_to_store_results.append(first_gene[1] + second_gene[1])
+# def foil(first_gene, second_gene, list_to_store_results):
+#     list_to_store_results.append(first_gene[0] + second_gene[0])
+#     list_to_store_results.append(first_gene[0] + second_gene[1])
+#     list_to_store_results.append(first_gene[1] + second_gene[0])
+#     list_to_store_results.append(first_gene[1] + second_gene[1])
     
-def distribute(gene, list_to_store_results): #list of current genotype possibilities
-    list_to_store_results.extend(list_to_store_results) # duplicate the list
-    for i in range(0, int(len(list_to_store_results)/2)):
-        list_to_store_results[i]+=gene[0]
-    for i in range(0, int(len(list_to_store_results)/2)):
-        list_to_store_results[int(len(list_to_store_results)/2) + i] += gene[1]
+# def distribute(gene, list_to_store_results): #list of current genotype possibilities
+#     list_to_store_results.extend(list_to_store_results) # duplicate the list
+#     for i in range(0, int(len(list_to_store_results)/2)):
+#         list_to_store_results[i]+=gene[0]
+#     for i in range(0, int(len(list_to_store_results)/2)):
+#         list_to_store_results[int(len(list_to_store_results)/2) + i] += gene[1]
 
 
-def get_all_combinations(parent, split_genes_list, list_to_store_results): #get all combinations of each parent
-    make_strings_lists(parent, split_genes_list)
-    foil(split_genes_list[0], split_genes_list[1], list_to_store_results) #foil the first two binomiasls
-    if len(split_genes_list) > 2: #if there are more than two binomials...
-        for i in range (0, int(len(genotype1)/2)-2): #Loop the following the integer of half of the length of a parent's genotype
-            distribute(split_genes_list[2+i], list_to_store_results)
+# def get_all_combinations(parent, split_genes_list, list_to_store_results): #get all combinations of each parent
+#     make_strings_lists(parent, split_genes_list)
+#     foil(split_genes_list[0], split_genes_list[1], list_to_store_results) #foil the first two binomiasls
+#     if len(split_genes_list) > 2: #if there are more than two binomials...
+#         for i in range (0, int(len(genotype1)/2)-2): #Loop the following the integer of half of the length of a parent's genotype
+#             distribute(split_genes_list[2+i], list_to_store_results)
 
-# TESTING............
-#get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
-#get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
-#print(possible_genotype_list1)
-#print(possible_genotype_list2)
-    
+# # TESTING............
+# get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
+# get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
+# print(possible_genotype_list1)
+# print(possible_genotype_list2)
 
-            
-
-
-
-
-
-
-
-
-'''# Punnet Square Calculator
+# Punnet Square Calculator
 # Will Morrison
 
 #Will Morrison can be reached at iamwillmorrison@gmail.com
 
-
+'''
 .______    __    __  .__   __. .__   __.  _______ .___________.        _______.  ______       __    __       ___      .______       _______      _______.
 |   _  \  |  |  |  | |  \ |  | |  \ |  | |   ____||           |       /       | /  __  \     |  |  |  |     /   \     |   _  \     |   ____|    /       |
 |  |_)  | |  |  |  | |   \|  | |   \|  | |  |__   `---|  |----`      |   (----`|  |  |  |    |  |  |  |    /  ^  \    |  |_)  |    |  |__      |   (----`
@@ -68,7 +58,7 @@ def get_all_combinations(parent, split_genes_list, list_to_store_results): #get 
 |  |      |  `--'  | |  |\   | |  |\   | |  |____     |  |        .----)   |   |  `--'  '--. |  `--'  |  /  _____  \  |  |\  \----.|  |____ .----)   |   
 | _|       \______/  |__| \__| |__| \__| |_______|    |__|        |_______/     \_____\_____\ \______/  /__/     \__\ | _| `._____||_______||_______/    
                                                                                                                                                         
-
+'''
 import datetime	
 
 
@@ -166,4 +156,4 @@ while True:
 		print("Again!\n")
 	else:	
 		quit()
-'''
+

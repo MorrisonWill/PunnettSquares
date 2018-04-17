@@ -82,12 +82,6 @@ def find_percentages():
         print("The percentage of ",genotype_list[i]," is ",genotype_percent,"%")
 
 
-    
-
-    
-        
-                
-    
 
 # TESTING............
 get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)

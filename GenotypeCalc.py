@@ -7,7 +7,6 @@ split_genes_list1 = []
 split_genes_list2 = []
 possible_genotype_list1 = []
 possible_genotype_list2 = []
-genotype_list=[]
 genotype_offspring=[]
 
 def make_strings_lists(parent_genotype, split_genes_list):
@@ -34,40 +33,68 @@ def distribute(gene, list_to_store_results): #list of current genotype possibili
 
 def get_all_combinations(parent, split_genes_list, list_to_store_results): #get all combinations of each parent
     make_strings_lists(parent, split_genes_list)
-    foil(split_genes_list[0], split_genes_list[1], list_to_store_results) #foil the first two binomiasls
-    if len(split_genes_list) > 2: #if there are more than two binomials...
+    if len(split_genes_list) == 1:
+        list_to_store_results.append(split_genes_list[0][0])
+        list_to_store_results.append(split_genes_list[0][1])
+    elif len(split_genes_list) == 2:
+        foil(split_genes_list[0], split_genes_list[1], list_to_store_results) #foil the first two binomiasls
+    elif len(split_genes_list) > 2: #if there are more than two binomials...
+        foil(split_genes_list[0], split_genes_list[1], list_to_store_results)
         for i in range (0, int(len(genotype1)/2)-2): #Loop the following the integer of half of the length of a parent's genotype
             distribute(split_genes_list[2+i], list_to_store_results)
             
 def get_all_possible_offspring_genotypes():
-    for z in range (0,4):
-        for i in range(0,4):
+    for z in range (0,len(possible_genotype_list2)):
+        for i in range(0,len(possible_genotype_list1)):
             string = possible_genotype_list1[z] + possible_genotype_list2[i]
-            sorted_string_list = sorted([string[0], string[1], string[2], string[3]],key=lambda x: x.lower())
-            sorted_string_list1 = sorted([sorted_string_list[0], sorted_string_list[1]])
-            sorted_string_list2 = sorted([sorted_string_list[2], sorted_string_list[3]])
-            sorted_string1 = "".join(sorted_string_list1)
-            sorted_string2 = "".join(sorted_string_list2)
-            genotype_offspring.append(sorted_string1 + sorted_string2)
-def print_genotype():
-    to_print = int(input("Press 1 to print, 2 to not print"))
-    if to_print == 1:
-        print((" " * len(genotype1) + "|")*len(possible_genotype_list1))
-        print(" "*len(genotype1) + "|"+ possible_geontype_list[i]
+            character_list = []
+            final_sorted_string_list = []
+            for i in range (0, len(string)):
+                character_list.append(string[i])
+            sorted_string_list = sorted(character_list,key=(lambda x: x.upper()))
+            for i in range(0, int(len(sorted_string_list)),2):
+                final_sorted_string_list.append("".join(sorted(sorted_string_list[i] + sorted_string_list[i+1])))
+            genotype_offspring.append("".join(final_sorted_string_list))
+#def print_genotype():
+#    to_print = int(input("Press 1 to print, 2 to not print"))
+#        row1 = (" " * len(genotype1) + "|")*len(possible_genotype_list1)
+#        row2 = " "*len(genotype1) + "|"
+#        for i in range(0, len(possible_genotype_list1)):
+#            row2 += possible_genotype_list1[i] + " | "
+        
+#        print(row1)
+#        print(row2)
+def find_percentages():
+    genotype_list = []
+    genotype_frequency = []
+    i = 0
+    list_length = len(genotype_offspring)
+    while list_length>0:
+        genotype = genotype_offspring[i]
+        genotype_list.append(genotype_offspring[i])
+        genotype_frequency.append(genotype_offspring.count(genotype_offspring[i]))
+        while genotype_frequency.count(genotype) > 0:
+            genotype_offspring.remove(genotype)
+            list_length-=1
+            print(z)
+            print(genotype_offspring.count(genotype))
+        i+=1
+        print(genotype_list)
+        print(genotype_frequency)
+
+        
+
+    
+        
+                
+    
 
 # TESTING............
 get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
 get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
-print(possible_genotype_list1)
-print(possible_genotype_list2)
 get_all_possible_offspring_genotypes()
 print(genotype_offspring)
-print_genotype()
-    
-
-            
-
-
+find_percentages()
 
 
 

@@ -73,14 +73,13 @@ def find_percentages():
         genotype = genotype_offspring[i]
         genotype_list.append(genotype_offspring[i])
         genotype_frequency.append(genotype_offspring.count(genotype_offspring[i]))
-        while genotype_frequency.count(genotype) > 0:
+        while genotype_offspring.count(genotype) > 0:
             genotype_offspring.remove(genotype)
             list_length-=1
-            print(z)
-            print(genotype_offspring.count(genotype))
         i+=1
-        print(genotype_list)
-        print(genotype_frequency)
+    for i in range (0,len(genotype_list)):
+        #print("The percentage of " + genotype_list[i] + " is " + (genotype_frequency[i]/(sum(genotype_frequency)))*100)
+
 
         
 

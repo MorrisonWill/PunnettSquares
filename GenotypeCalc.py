@@ -65,7 +65,6 @@ def get_all_possible_offspring_genotypes():
 #        print(row1)
 #        print(row2)
 def find_percentages():
-    print(genotype_offspring)
     genotype_list = []
     genotype_frequency = []
     list_length = len(genotype_offspring)

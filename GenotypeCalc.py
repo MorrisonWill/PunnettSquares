@@ -55,15 +55,10 @@ def get_all_possible_offspring_genotypes():
             for i in range(0, int(len(sorted_string_list)),2):
                 final_sorted_string_list.append("".join(sorted(sorted_string_list[i] + sorted_string_list[i+1])))
             genotype_offspring.append("".join(final_sorted_string_list))
-#def print_genotype():
-#    to_print = int(input("Press 1 to print, 2 to not print"))
-#        row1 = (" " * len(genotype1) + "|")*len(possible_genotype_list1)
-#        row2 = " "*len(genotype1) + "|"
-#        for i in range(0, len(possible_genotype_list1)):
-#            row2 += possible_genotype_list1[i] + " | "
-        
-#        print(row1)
-#        print(row2)
+def print_genotype():
+        to_print = int(input("Press 1 to print, 2 to not print"))
+       if to_print==1:
+           
 def find_percentages():
     genotype_list = []
     genotype_frequency = []
@@ -86,4 +81,5 @@ def find_percentages():
 get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
 get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
 get_all_possible_offspring_genotypes()
+print_genotype()
 find_percentages()

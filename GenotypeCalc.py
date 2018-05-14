@@ -57,7 +57,8 @@ def get_all_possible_offspring_genotypes():
             genotype_offspring.append("".join(final_sorted_string_list))
 def print_genotype():
         to_print = int(input("Press 1 to print, 2 to not print"))
-       if to_print==1:
+      # if to_print==1:
+           
            
 def find_percentages():
     genotype_list = []
@@ -81,5 +82,4 @@ def find_percentages():
 get_all_combinations(genotype1, split_genes_list1, possible_genotype_list1)
 get_all_combinations(genotype2, split_genes_list2, possible_genotype_list2)
 get_all_possible_offspring_genotypes()
-print_genotype()
 find_percentages()
